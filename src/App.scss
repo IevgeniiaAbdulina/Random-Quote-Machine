@@ -1,14 +1,38 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #282c34;
+// Page Style
+body {
+  background-color: #3c3c3c;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: rgb(66, 106, 238);
+  color: #5551ff;
+}
+
+// Quote Box Style
+.quote {
+  text-align: center;
+  width: 450px;
+  height: auto;
+  padding: 40px 50px;
+  background-color: #fff;
+
+  &-text {
+    font-size: 32px;
+  }
+
+  &-author {
+    font-size: 16px;
+  }
+}
+
+footer {
+  color: #fff;
+  font-size: 16px;
+
+  a {
+    text-decoration: none;
+    color: #918ffd;
+  }
 }
