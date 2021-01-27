@@ -46,7 +46,7 @@ class App extends React.Component {
           </div>
           <p id="author" className="quote-author">- {this.state.quoteItem.author}</p>
           <div className="buttons">
-            <a id="tweet-quote" href="twitter.com/intent/tweet" target="_blank">
+            <a id="tweet-quote" href="https://twitter.com/intent/tweet" target="_blank" rel="noreferrer">
               <img src={twitterIc} alt="twitter icon" />
             </a>
             <button id="new-quote" className="button" onClick={this.getQuote}>New quote</button>
