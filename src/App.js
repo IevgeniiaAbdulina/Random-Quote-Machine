@@ -49,7 +49,7 @@ class App extends React.Component {
             <a id="tweet-quote" href="twitter.com/intent/tweet" target="_blank">
               <img src={twitterIc} alt="twitter icon" />
             </a>
-            <button id="new-quote" className="button">New quote</button>
+            <button id="new-quote" className="button" onClick={this.getQuote}>New quote</button>
           </div>
         </div>
         <div className="attribution">
