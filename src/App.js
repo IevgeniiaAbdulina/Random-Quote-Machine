@@ -9,6 +9,31 @@ class App extends React.Component {
     this.state = {
       quoteItem: ""
     }
+
+    this.getQuote = this.getQuote.bind(this);
+    this.getRandomQuoteIndex = this.getRandomQuoteIndex.bind(this);
+  }
+
+  componentDidMount() {
+    this.getQuote();
+  }
+
+  getRandomQuoteIndex(value) {
+    return Math.floor(Math.random() * value);
+  }
+
+  getQuote() {
+    const urlQuotes = "https://gist.githubusercontent.com/nasrulhazim/54b659e43b1035215cd0ba1d4577ee80/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json";
+
+    fetch(urlQuotes)
+      .then(response => response.json())
+      .then(data => data.quotes[this.getRandomQuoteIndex(data.quotes.length)])
+      .then(data => {
+        this.setState({
+          quoteItem: data
+        })
+      })
+      .catch(err => console.log("Can't get quotes: ", err));
   }
 
   render() {
@@ -17,9 +42,9 @@ class App extends React.Component {
         <div id="quote-box" className="quote">
           <div className="quote-text-box">
             <img src={quoteIc} alt="quote icon" />
-            <h1 id="text" className="quote-text">{ }</h1>
+            <h1 id="text" className="quote-text">{this.state.quoteItem.quote}</h1>
           </div>
-          <p id="author" className="quote-author">- { }</p>
+          <p id="author" className="quote-author">- {this.state.quoteItem.author}</p>
           <div className="buttons">
             <a id="tweet-quote" href="twitter.com/intent/tweet" target="_blank">
               <img src={twitterIc} alt="twitter icon" />
